@@ -1,4 +1,4 @@
-// 1. Найти минимальный элемент массива
+// 1. Найти минимальный элемент массиваa
 function countMinElArray(array) {
    let min = array[0];
    for (let i = 0; i < array.length; i++) {
@@ -7,6 +7,7 @@ function countMinElArray(array) {
    return console.log(min);
 }
 countMinElArray([1, 66, -656, 89, 3, 12, -99, 676, -1, 55]);
+
 
 
 // 2. Найти максимальный элемент массива
