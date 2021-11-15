@@ -4,7 +4,7 @@ function countMinElArray(array) {
    for (let i = 0; i < array.length; i++) {
       if (min > array[i]) min = array[i];
    }
-   return console.log(min);
+   return min;
 }
 countMinElArray([1, 66, -656, 89, 3, 12, -99, 676, -1, 55]);
 
@@ -16,7 +16,7 @@ function countMaxElArray(array) {
    for (let i = 0; i < array.length; i++) {
       if (max < array[i]) max = array[i];
    }
-   return console.log(max);
+   return max;
 }
 countMaxElArray([1, 66, 189, 3, 12, 6176, -1, 55]);
 
@@ -30,9 +30,11 @@ function findMinIndex(array) {
       if (min > array[i]) {
          min = array[i];
          minIndex = i;
+      } else if (min === array[i]) {
+         minIndex = min;
       }
    }
-   return console.log(min, minIndex);
+   return minIndex;
 }
 findMinIndex([1, 66, -99, 189, 3, 12, 6176, -1, 55]);
 
@@ -45,9 +47,11 @@ function findMaxIndex(array) {
       if (max < array[i]) {
          max = array[i];
          maxIndex = i;
+      } else if (max === array[i]) {
+         maxIndex = max;
       }
    }
-   return console.log(max, maxIndex);
+   return maxIndex;
 }
 findMaxIndex([1, 66, -99, 189, 3, 12, 6176, -1, 55]);
 
@@ -60,7 +64,7 @@ function contOddIndex(array) {
          count += i;
       }
    }
-   return console.log(count);
+   return count;
 }
 contOddIndex([1, 66, -99, 189, 3, 12, 6176, -1, 55]);
 
@@ -71,22 +75,24 @@ function reverseArray(array) {
    for (let i = array.length - 1; i >= 0; i--) {
       newArray.push(array[i]);
    }
-   console.log(newArray);
+   return newArray;
 }
-reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+console.log(reverseArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
 
 // 7. Посчитать количество нечетных элементов массива
 function contOddEl(array) {
    let count = 0;
    for (let i = 1; i <= array.length; i++) {
-      if (i % 2 !== 0) {
+      if (array[i] % 2 !== 0) {
          count++;
       }
    }
-   return console.log(count);
+   return count;
+
 }
-contOddEl([1, 3, 5, 7, 8]);
+console.log(contOddEl([1, 3, 5, 7, 8]));
+
 
 
 
@@ -101,6 +107,6 @@ function doubleReverse(array) {
       breakPoint > i ? subArray1.push(element) : subArray2.push(element);
    }
    const updateArray = [].concat(subArray1.reverse(), subArray2.reverse());
-   return console.log(array, updateArray);
+   return updateArray;
 }
 doubleReverse([1, 2, 3, 4]); // по правде не совсем понял как делать данную задачу,и ответ мне подсказали
