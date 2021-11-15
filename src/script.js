@@ -30,32 +30,24 @@ console.log(getNumber([0, 2, 8, -4, 0, -122, 13, -4, 28, 12]));
 // фильтрует массив, заданный как первый параметр, и возвращает
 // массив объектов, которые содержат в своих заголовках заданную строку
 // в качестве второго параметра(без учета регистра).
-const arr = [
-   { title: "Some title1" },
-   { Title: " like JS!" },
-   { user: "This obj doesn’t have key title js" },
-   { title: "Js - is the best!" },
-];
-const newArr = [];
 function filterTitle(array, subString) {
+   const newArr = [];
    array.forEach(element => {
       const arrEntriers = Object.entries(element);
       for (const [key, value] of arrEntriers) {
-         // не знал как отфильтровать значение чтоб нашло js в любом регистре,
-         // по этому обратился к соскурснику и он подсказал данной идеей
-         // я намеренно поменял регистр ключя вовтором свойстве.
-         // так как в условии сказано найти все тайтлы в малом регистре,
-         // а вариант уменьшаться через JSON.parse((JSON.stringify(arr).toLoverCase()
-         // это не вариант  так как он уменшит и регистр ключа  
          if (key === 'title' && value.toLowerCase().includes(subString.toLowerCase())) {
-            newArr.push(arrEntriers);
+            newArr.push(element);
          }
       }
-      return newArr;
    });
+   return newArr;
 }
-filterTitle(arr, 'js')
-console.log(newArr);
+console.log(filterTitle([
+   { title: "Some title1" },
+   { title: " like JS!" },
+   { user: "This obj doesn’t have key title js" },
+   { title: "Js - is the best!" }
+], 'js'));
 
 
 
@@ -63,8 +55,8 @@ console.log(newArr);
 // ключи – символы строки, значение – количество повторений символов в
 // строке
 function countCharacters(string) {
-   const result = {};
-   const arrString = string.split('');
+   let result = {};
+   let arrString = string.split('');
    arrString.forEach(element => {
       result[element] = (arrString.filter(item => item === element).length);
    });
@@ -75,18 +67,22 @@ console.log(countCharacters('sppparrow'));
 
 // 5. Принимая число, ваша функция должна найти следующий
 // положительный палиндром большего размера.
-function getNextPalindrome(number) {
-   number++;
-   const numberReverse = +(number.toString().split("").reverse().join(""));
-   while (true) {
-      if (numberReverse === number && number > 10) {
-         return number;
-      } else {
-         number++;
+const getNextPalindrome = (number) => {
+   const minPalindrome = 11;
+   if (number > 10) {
+      number++;
+      while (true) {
+         if (
+            number.toString().split('').reverse().join('') == number) {
+            return number;
+         } else {
+            number++;
+         }
       }
-   }
-}
-console.log(getNextPalindrome(100));
+   } else {
+      return minPalindrome;
+   };
+};
 
 
 // 6. Создать структуру данных Set, используя объект, создать методы add, remove, has
