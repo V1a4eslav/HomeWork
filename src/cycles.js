@@ -1,16 +1,15 @@
 // 1. Найти сумму четных чисел и их количество в диапазоне от 1 до 99
-function countEvenSum() {
+function countEvenSum(min, max) {
    let sum = 0;
    let even = 0;
-   for (let i = 1; i < 100; i++) {
+   for (let i = min; i < max; i++) {
       if (i % 2 === 0) {
          sum += i;
          ++even;
       }
    }
-   return console.log(sum, even);
+   return sum, even;
 }
-countEvenSum();
 
 
 // 2. Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)
@@ -21,8 +20,8 @@ function checkSimple(number) {
          count++;
       }
    }
-   if (count === 2) return console.log(`${number} - является простым числом`);
-   return console.log('Это не простое число');
+   if (count === 2) return `${number} является простым числом`;
+   return 'Это не простое число';
 }
 checkSimple(43);// признаю ,решение присмотрел у сокурсника так как не мог понять логики.Не хватило домыслить что надо добавить переменную которая бы посчитала делитель
 
@@ -33,12 +32,11 @@ function sqr(num) {
    for (let i = 0; i < num; i++) {
       let sq = i * i;
       if (sq > num) {
-         console.log(`${i - 1} - это и будет наш корень`);
-         break;
+         i - 1;
+         return `${i - 1} это и будет наш корень`;
       }
    }
 }
-sqr(63);
 
 
 // 4. Вычислить факториал числа n. n! = 1*2*…*n-1*n;
@@ -47,9 +45,10 @@ function fuctorialCount(n) {
    while (n) {
       result *= n--;
    }
-   return console.log(result);;
+   return result;
 }
-fuctorialCount(6);
+
+// console.log(fuctorialCount(6));
 
 
 
@@ -60,7 +59,7 @@ function countNumber(n) {
    for (let i = 0; i < stringNum.length; i++) {
       sum += Number(stringNum[i]);
    }
-   return console.log(sum);;
+   return sum;
 }
 countNumber(161);
 
@@ -75,6 +74,5 @@ function reverseNumber(n) {
       res += numString[i];
       reverse = Number(res)
    }
-   return console.log(reverse, typeof reverse);
+   return reverse;
 }
-reverseNumber(2011)
