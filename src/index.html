@@ -2,15 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style.css">
+   <title>Document</title>
 </head>
 
 <body>
-    <script src="./conditionalStatements.js"></script>
-    <script src="./cycles.js"></script>
-    <script src="./array.js"></script>
+   <div class="todo-list">
+      <div class="todo-list__container">
+         <div class="todolist__inner">
+            <h1 class="todo-list__title">TODO List</h1>
+            <form action="GET" class="todo-list__form">
+               <div class="todo-list__input-body">
+                  <div class="todo-list__input-body-wrapper">
+                     <input type="text" class="todo-list__input">
+                     <button class="todo-list__submit" type="button">ADD</button>
+                  </div>
+               </div>
+            </form>
+            <ul class="todo-list__content content"></ul>
+         </div>
+      </div>
+   </div>
+   <script src="./script.js"></script>
 </body>
 
 </html>
